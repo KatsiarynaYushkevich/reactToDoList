@@ -1,0 +1,53 @@
+@use "../../style/index.scss" as *;
+
+.add_task_wrapper{
+  width: 30%;
+  background-color: $form_bg;
+  border-radius: 20px;
+  gap: 30px;
+  margin: 0px auto;
+  @include flex_style(column);
+  @include flex_items_pos();
+}
+.tasks_form {
+  @include flex_style(column);
+  padding: 20px;
+  gap: 15px;
+  width: 100%;
+  @include text_style($f_color:$sub_text_color);
+
+  h2{
+@include text_style($f_size: 35px, $f_weight: 600, $f_color:$sub_text_color);
+  }
+
+  input {
+    @include element_style($border: 1px solid $border_color);
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  select {
+    @include element_style($border: 1px solid $border_color);
+  }
+
+  button {
+    @include element_style($b_radius: 10px);
+    @include text_style();
+    background-color: $button_color;
+  }
+
+  button:hover {
+    background-color: $hover_color;
+  }
+}
+
+.form_item{
+  @include flex_style(column);
+  gap:3px;
+}
+
+.error_message{
+  color: $error_color;
+}

@@ -1,0 +1,34 @@
+@use "../../style/index.scss" as *;
+
+.tasks_wrapper {
+  @include flex_style(column);
+  gap: 15px;
+
+  h2{
+    @include text_style($f_color:$sub_text_color, $f_weight: 600, $f_size:30px);
+  }
+}
+
+.tasks_list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    @include flex_style(column);
+    padding: 5px 0 5px 0;
+    list-style-type: none;
+    gap: 5px;
+    border-bottom: 1px solid #000;
+
+    span{
+      @include text_style($f_color:$sub_text_color, $f_weight:600);
+    }
+
+    p{
+      @include text_style($f_color:$sub_text_color);
+      overflow: auto;
+      word-wrap: break-word;
+    }
+  }
+}

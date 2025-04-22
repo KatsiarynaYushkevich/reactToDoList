@@ -1,0 +1,19 @@
+@use "../style/index.scss" as *;
+
+.nav_links{
+  width: 100%;
+  height: 10vh;
+  @include flex_style();
+  @include flex_items_pos($j_content: flex-start);
+  gap: 20px;
+
+  a{
+    text-decoration: none;
+    color: black;
+    @include text_style($f_color: $link_text_color);
+  }
+
+  a:hover{
+    color: $hover_color;
+  }
+}
