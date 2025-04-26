@@ -14,8 +14,13 @@
   padding: 0;
   margin: 0;
 
+  .task_info{
+    @include flex_style();
+    gap: 10px;
+  }
   li {
-    @include flex_style(column);
+    @include flex_style();
+    @include flex_items_pos($j_content: space-between);
     padding: 5px 0 5px 0;
     list-style-type: none;
     gap: 5px;
@@ -29,6 +34,19 @@
       @include text_style($f_color:$sub_text_color);
       overflow: auto;
       word-wrap: break-word;
+    }
+
+    button{
+      background-color: #e52020;
+      @include element_style($m_height: 30px);
+      background-image: url("../../assets/delete_icon.svg");
+      min-width: 30px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    button:hover{
+      background-color: #8c1515;
     }
   }
 }

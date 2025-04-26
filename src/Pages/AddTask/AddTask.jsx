@@ -25,7 +25,7 @@ function AddTask() {
         const newTask = {
             id: tasks.length + 1,
             name: formData.name,
-            description: formData.description,
+            description: formData.description.trim() ? formData.description : 'User left no description for this task',
             status: formData.status,
         };
         dispatch(addTask(newTask));
@@ -60,7 +60,6 @@ function AddTask() {
                         <select defaultValue="started"
                                 onChange={(event) => setFormData({...formData, status: event.target.value})}>
                             <option value="started">Started</option>
-                            <option value="urgent">Urgent</option>
                             <option value="completed">Completed</option>
                         </select>
                     </div>

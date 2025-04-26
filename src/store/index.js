@@ -4,6 +4,9 @@ import tasksSlice from "./slice/tasksSlice.js";
 export const store = configureStore({
     reducer:{
         tasksList: tasksSlice,
+    },
+    middleware:{
+
     }
 });
 
