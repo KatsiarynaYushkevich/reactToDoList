@@ -1,18 +1,16 @@
 import React, {useState} from 'react';
-import {Link} from "react-router";
-import {useDispatch, useSelector} from "react-redux";
-import {addTask, setTasks} from "../../store/slice/tasksSlice.js";
 import "./add_task.scss"
+import {useAddTaskMutation, useGetTasksQuery} from "../../Services/tasksApi.js";
 
 function AddTask() {
     const [errorMessage, setErrorMessage] = useState('');
+    const {data: tasks = []} = useGetTasksQuery();
+    const [addTask] = useAddTaskMutation();
     const [formData, setFormData] = useState({
         name: '',
         description: '',
         status: 'started'
     });
-    const dispatch = useDispatch();
-    const tasks = useSelector((state) => state.tasksList);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -23,12 +21,12 @@ function AddTask() {
         }
 
         const newTask = {
-            id: tasks.length + 1,
+            id: String(tasks.length + 1),
             name: formData.name,
             description: formData.description.trim() ? formData.description : 'User left no description for this task',
             status: formData.status,
         };
-        dispatch(addTask(newTask));
+        addTask(newTask);
 
         setFormData({
             name: '',
